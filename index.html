@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Ampersand Forever — Web Design for Healthcare & Dental Clinics</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Inter:wght@900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Poppins',-apple-system,sans-serif;background:#f7f6f3;color:#111;font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased;font-weight:400}
+nav{display:flex;justify-content:space-between;align-items:center;padding:26px 64px;border-bottom:1px solid #e2e0da}
+.nav-logo{font-family:'Inter',sans-serif;font-size:14px;font-weight:900;text-decoration:none;color:#111;text-transform:lowercase;letter-spacing:-.2px}
+.nav-right{display:flex;align-items:center;gap:36px}
+.nav-right a{font-size:13px;color:#111;text-decoration:none;font-weight:400}
+.nav-right a:hover{opacity:.5}
+.nav-dim{font-size:13px;color:#555;font-weight:400}
+.s{padding:96px 64px}
+.bt{border-top:1px solid #e2e0da}
+.tlink{font-size:15px;font-weight:500;color:#111;text-decoration:none}
+.tlink:hover{opacity:.5}
+.two{display:grid;grid-template-columns:220px 1fr;gap:0 80px;align-items:start}
+.lbl{font-size:14px;color:#333;line-height:1.6;font-weight:500}
+.lbl-s{font-size:13px;color:#555;margin-top:3px;font-weight:400}
+#hero{padding:96px 64px 104px}
+.hero-inner{display:grid;grid-template-columns:220px 1fr;gap:0 80px;align-items:start}
+.hero-greeting{font-size:clamp(28px,3.5vw,44px);font-weight:700;color:#111;line-height:1.2;letter-spacing:-.5px}
+.hero-greeting span{display:block;font-size:13px;color:#666;font-weight:400;margin-top:8px;letter-spacing:0}
+.hero-body{font-size:clamp(16px,1.8vw,21px);font-weight:400;line-height:1.75;color:#111}
+.hero-line1{display:block;margin-bottom:16px}
+.hero-line2{display:block;color:#444}
+.prob-headline{font-size:clamp(24px,2.8vw,36px);font-weight:700;line-height:1.2;letter-spacing:-.3px;margin-bottom:20px;color:#111}
+.prob-line2{display:block;color:#111;font-weight:700}
+.prob-body{font-size:15px;font-weight:400;color:#444;line-height:1.8;margin-bottom:32px}
+.rows{list-style:none}
+.rows li{font-size:14px;font-weight:400;color:#444;padding:13px 0;border-top:1px solid #e2e0da;line-height:1.65}
+.rows li:last-child{border-bottom:1px solid #e2e0da}
+.process-wrap{width:100%}
+.process-top{display:grid;grid-template-columns:220px 1fr;gap:0 80px;align-items:end;margin-bottom:40px}
+.process-top h2{font-size:clamp(24px,2.8vw,36px);font-weight:700;letter-spacing:-.3px;line-height:1.2}
+.process-steps-area{display:grid;grid-template-columns:220px 1fr;gap:0 80px}
+.proc-label-spacer{}
+.proc-step{display:grid;grid-template-columns:24px 180px 1fr;column-gap:24px;align-items:start}
+.proc-dot-wrap{display:flex;flex-direction:column;align-items:center;padding-top:0}
+.proc-dot{width:14px;height:14px;border-radius:50%;border:1.5px solid #777;background:#f7f6f3;flex-shrink:0;z-index:2;display:flex;align-items:center;justify-content:center}
+.proc-dot::after{content:'';width:5px;height:5px;border-radius:50%;background:#333}
+.proc-dot-line{width:1px;background:#ddd;flex:1;min-height:56px}
+.proc-step.last .proc-dot-line{display:none}
+.proc-name-col{padding-bottom:48px}
+.proc-step.last .proc-name-col{padding-bottom:0}
+.step-name{font-size:14px;font-weight:600;color:#111;margin-bottom:3px;line-height:1.4}
+.step-timing{font-size:12px;font-weight:400;color:#666}
+.proc-blurb{font-size:14px;font-weight:400;color:#444;line-height:1.75;padding-bottom:48px;margin-top:-4px}
+.proc-step.last .proc-blurb{padding-bottom:0}
+.work-ph-box{width:100%;aspect-ratio:16/9;background:#eeecea;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;border:1px dashed #d5d2cb}
+.work-ph-text{font-size:12px;font-weight:500;color:#888;letter-spacing:.1em;text-transform:uppercase}
+.work-ph-sub{font-size:13px;font-weight:400;color:#aaa;font-style:italic}
+.about-body{font-size:15px;font-weight:400;color:#444;line-height:1.8;margin-bottom:36px}
+.services-lbl{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#888;margin-bottom:14px}
+.skill{font-size:14px;font-weight:400;color:#111;padding:12px 0;border-top:1px solid #e2e0da}
+.skill:last-child{border-bottom:1px solid #e2e0da}
+.pricing-intro{font-size:clamp(24px,2.8vw,36px);font-weight:700;letter-spacing:-.3px;margin-bottom:16px}
+.pricing-blurb{font-size:15px;font-weight:400;color:#444;line-height:1.75;margin-bottom:36px}
+.p-tier{padding:36px 0;display:grid;grid-template-columns:1fr 1fr;gap:0 80px;align-items:start}
+.p-tier+.p-tier{border-top:1px solid #e2e0da}
+.t-name{font-size:clamp(20px,2.2vw,28px);font-weight:600;color:#111;letter-spacing:-.3px;line-height:1.2;margin-bottom:6px}
+.t-sub{font-size:13px;font-weight:400;color:#666;line-height:1.5;margin-bottom:24px}
+.t-starting{font-size:11px;font-weight:500;color:#888;letter-spacing:.08em;text-transform:uppercase;margin-bottom:3px}
+.t-price{font-size:22px;font-weight:600;letter-spacing:-.3px;color:#555}
+.t-feats{padding-top:4px}
+.t-feat-item{font-size:14px;font-weight:400;color:#444;padding:6px 0;line-height:1.5;display:flex;gap:10px;align-items:baseline}
+.t-feat-item::before{content:'--';font-size:12px;color:#bbb;flex-shrink:0}
+.cta-h{font-size:clamp(26px,3.5vw,46px);font-weight:700;line-height:1.15;letter-spacing:-.4px;margin-bottom:20px}
+.cta-sub{font-size:15px;font-weight:400;color:#444;line-height:1.75;margin-bottom:20px}
+footer{border-top:1px solid #e2e0da;padding:26px 64px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center}
+.f-name{font-family:'Inter',sans-serif;font-size:14px;font-weight:900;text-transform:lowercase;color:#111;text-decoration:none}
+.f-copy{font-size:12px;color:#aaa;text-align:center}
+.f-links{display:flex;gap:32px;justify-content:flex-end}
+.f-links a{font-size:13px;font-weight:400;color:#555;text-decoration:none}
+.f-links a:hover{color:#111}
+@media(max-width:768px){
+  nav{padding:20px 24px}
+  .nav-dim{display:none}
+  .s,#hero{padding:64px 24px}
+  .two,.hero-inner,.process-top,.process-steps-area{grid-template-columns:1fr;gap:20px}
+  .proc-label-spacer{display:none}
+  .proc-step{grid-template-columns:24px 1fr;column-gap:16px}
+  .proc-blurb{grid-column:2;padding-bottom:32px}
+  .proc-name-col{padding-bottom:8px}
+  .p-tier{grid-template-columns:1fr;gap:24px}
+  footer{grid-template-columns:1fr;gap:12px;padding:24px;text-align:center}
+  .f-links{justify-content:center;flex-direction:column;align-items:center;gap:8px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#" class="nav-logo">ampersand forever</a>
+  <div class="nav-right">
+    <span class="nav-dim">Toronto, CA</span>
+    <a href="/cdn-cgi/l/email-protection#88e9e5f8edfafbe9e6ecf0eee7faedfeedfac8efe5e9e1e4a6ebe7e5"><span class="__cf_email__" data-cfemail="b6d7dbc6d3c4c5d7d8d2ced0d9c4d3c0d3c4f6d1dbd7dfda98d5d9db">[email&#160;protected]</span></a>
+    <a href="tel:7786978848">778.697.8848</a>
+  </div>
+</nav>
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-greeting">Hi, I'm Desiree.<span>Web Designer &amp; Tech Consultant</span></div>
+    <div class="hero-body">
+      <span class="hero-line1">Tech consultant and UX designer focused on building conversion-focused websites for healthcare and dental clinics.</span>
+      <span class="hero-line2">I help clinics modernize their digital presence to increase trust, clarity, and patient bookings.</span>
+    </div>
+  </div>
+</section>
+<section id="problem" class="s bt">
+  <div class="two">
+    <div class="lbl">The Problem<div class="lbl-s">Why your website matters</div></div>
+    <div>
+      <h2 class="prob-headline">You've built something great.<span class="prob-line2">Your website should reflect that.</span></h2>
+      <p class="prob-body">Running a clinic takes real skill and your patients already know that when they walk through your door. But before they ever get there, they are looking you up online. An outdated or unclear website can make them second-guess a clinic they would actually love.</p>
+      <ul class="rows">
+        <li>First impressions happen online - your site sets the tone before you say a word</li>
+        <li>Unclear service pages leave patients guessing and booking elsewhere</li>
+        <li>A buried phone number or missing booking button costs you appointments every day</li>
+        <li>A site that does not work on mobile feels untrustworthy even if your care is excellent</li>
+      </ul>
+    </div>
+  </div>
+</section>
+<section id="process" class="s bt">
+  <div class="process-wrap">
+    <div class="process-top">
+      <div class="lbl">Process<div class="lbl-s">How we work together</div></div>
+      <h2>A clear process. No surprises.</h2>
+    </div>
+    <div class="process-steps-area">
+      <div class="proc-label-spacer"></div>
+      <div class="proc-steps-col">
+        <div class="proc-step">
+          <div class="proc-dot-wrap"><div class="proc-dot"></div><div class="proc-dot-line"></div></div>
+          <div class="proc-name-col"><div class="step-name">Discovery Session</div><div class="step-timing">60-minute workshop</div></div>
+          <div class="proc-blurb">We start with a real conversation about your clinic, your patients, and your goals. I learn what makes your practice different and what you want your website to do for you.</div>
+        </div>
+        <div class="proc-step">
+          <div class="proc-dot-wrap"><div class="proc-dot"></div><div class="proc-dot-line"></div></div>
+          <div class="proc-name-col"><div class="step-name">Strategy &amp; Sitemap</div><div class="step-timing">Week 1</div></div>
+          <div class="proc-blurb">I map out a clear structure for your site - what pages you need, what goes where, and how to guide a visitor from just browsing to ready to book.</div>
+        </div>
+        <div class="proc-step">
+          <div class="proc-dot-wrap"><div class="proc-dot"></div><div class="proc-dot-line"></div></div>
+          <div class="proc-name-col"><div class="step-name">Design &amp; Build</div><div class="step-timing">Weeks 2-4</div></div>
+          <div class="proc-blurb">Your site comes to life - clean, fast, and built to look great on any device. Every design decision is made with your patients in mind.</div>
+        </div>
+        <div class="proc-step">
+          <div class="proc-dot-wrap"><div class="proc-dot"></div><div class="proc-dot-line"></div></div>
+          <div class="proc-name-col"><div class="step-name">Review &amp; Refine</div><div class="step-timing">2 rounds included</div></div>
+          <div class="proc-blurb">You review, give feedback, and I refine. We go back and forth until it feels right - nothing goes live until you are happy with it.</div>
+        </div>
+        <div class="proc-step last">
+          <div class="proc-dot-wrap"><div class="proc-dot"></div><div class="proc-dot-line"></div></div>
+          <div class="proc-name-col"><div class="step-name">Launch &amp; Handoff</div><div class="step-timing">Week 4</div></div>
+          <div class="proc-blurb">Your site goes live on Webflow - built so your team can update it easily without a developer. I walk you through everything before signing off.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="work" class="s bt">
+  <div class="two">
+    <div class="lbl">Work<div class="lbl-s">Selected projects</div></div>
+    <div class="work-ph-box">
+      <span class="work-ph-text">Portfolio coming soon</span>
+      <span class="work-ph-sub">Case studies and redesign demos in progress</span>
+    </div>
+  </div>
+</section>
+<section id="about" class="s bt">
+  <div class="two">
+    <div class="lbl">About<div class="lbl-s">Why choose me</div></div>
+    <div>
+      <h2 style="font-size:clamp(22px,2.4vw,32px);font-weight:700;letter-spacing:-.3px;line-height:1.2;margin-bottom:20px">Curiosity-driven. Simplicity-focused.</h2>
+      <p class="about-body">My approach is guided by curiosity, a love of simplicity, and a genuine belief that good design helps people communicate better. I come from a background in business transformation and tech strategy which means I think about your website as a system, not just a set of pretty pages. Every decision has a reason behind it.</p>
+      <div class="services-lbl">Services</div>
+      <div class="skill">UX Strategy</div>
+      <div class="skill">Web Design &amp; Development</div>
+      <div class="skill">Webflow</div>
+      <div class="skill">SEO Foundations</div>
+    </div>
+  </div>
+</section>
+<section id="pricing" class="s bt">
+  <div class="two">
+    <div class="lbl">Pricing<div class="lbl-s">What's included</div></div>
+    <div>
+      <h2 class="pricing-intro">Simple, transparent pricing.</h2>
+      <p class="pricing-blurb">I currently offer two tiers of work depending on where your clinic is starting from — a focused homepage redesign for a strong first impression, or a full website rebuild for clinics ready to modernize everything.</p>
+      <div class="p-tier">
+        <div>
+          <div class="t-name">Homepage Redesign</div>
+          <div class="t-sub">A strong first impression, built fast</div>
+          <div class="t-starting">Starting at</div>
+          <div class="t-price">$750</div>
+        </div>
+        <div class="t-feats">
+          <div class="t-feat-item">Custom homepage design and build</div>
+          <div class="t-feat-item">Mobile-responsive layout</div>
+          <div class="t-feat-item">Clear service messaging and booking CTA</div>
+          <div class="t-feat-item">SEO meta setup</div>
+          <div class="t-feat-item">2 revision rounds</div>
+          <div class="t-feat-item">Webflow deployment and walkthrough</div>
+        </div>
+      </div>
+      <div class="p-tier">
+        <div>
+          <div class="t-name">Full Website Rebuild</div>
+          <div class="t-sub">For clinics ready to fully modernize</div>
+          <div class="t-starting">Starting at</div>
+          <div class="t-price">$2,000</div>
+        </div>
+        <div class="t-feats">
+          <div class="t-feat-item">Full site strategy and sitemap</div>
+          <div class="t-feat-item">Up to 6 pages, custom designed</div>
+          <div class="t-feat-item">Copywriting guidance and SEO foundations</div>
+          <div class="t-feat-item">Mobile-first throughout</div>
+          <div class="t-feat-item">2 revision rounds per page</div>
+          <div class="t-feat-item">Webflow CMS setup and team training</div>
+        </div>
+      </div>
+      <p style="font-size:13px;font-weight:400;color:#888;margin-top:28px">Final pricing confirmed after discovery session.</p>
+    </div>
+  </div>
+</section>
+<section id="cta" class="s bt">
+  <div class="two">
+    <div class="lbl">Let's Talk!<div class="lbl-s">Contact me</div></div>
+    <div>
+      <h2 class="cta-h">Good care deserves a great first impression.</h2>
+      <p class="cta-sub">Ready to build? If your website is not doing your clinic justice, let's change that.</p>
+      <p class="cta-sub" style="margin-top:12px">Send me an email with a bit about your clinic and what you're looking for, and I'll get back to you to book a free 30-minute call.</p>
+      <a href="/cdn-cgi/l/email-protection#04656974617677656a607c626b7661726176446369656d682a676b69" class="tlink">Get in touch &rarr;</a>
+    </div>
+  </div>
+</section>
+<footer>
+  <a href="#" class="f-name">ampersand forever</a>
+  <span class="f-copy">&copy; 2026 Ampersand 
