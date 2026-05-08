@@ -1045,12 +1045,15 @@
   }
   .case-callout p{
     margin: 0; max-width: none;
+    white-space: nowrap;
     font-family: var(--display);
     font-weight: 700;
-    /* Sized to roughly match the case-study H1 (clamp(44px, 7vw, 110px)),
-       a touch smaller. The <br> in the markup forces the two-line break
-       across all breakpoints. */
-    font-size: clamp(40px, 6.5vw, 100px);
+    /* Sized so the line fills the available content width on one line.
+       Text is 60 chars; Inter Tight Bold @ -0.03em letter-spacing renders
+       ~0.45 of font-size per char. Content area is viewport - 2×pad-x (~92%).
+       Ratio 3.6vw fills ~99% of the content width — right at the edge,
+       no wrap, no overflow. */
+    font-size: clamp(20px, 3.6vw, 108px);
     line-height: 1.05; letter-spacing: -.03em;
     color: var(--ink);
   }
@@ -1110,9 +1113,9 @@
     font-family: var(--mono); font-size: 10px; color: var(--muted);
     letter-spacing:.08em; text-transform: uppercase;
   }
-  .swatch-row{ display:flex; flex-wrap: nowrap; gap: 14px; }
+  .swatch-row{ display:flex; flex-wrap: wrap; gap: 14px; }
   .swatch{
-    flex: 1 1 0; min-width: 0;
+    flex: 1 1 110px; min-width: 100px;
     display:flex; flex-direction: column; gap: 8px;
   }
   .swatch .chip{
@@ -1123,12 +1126,6 @@
     font-family: var(--mono); font-size: 10px; color: var(--muted);
     letter-spacing:.04em; text-transform: uppercase;
     display:flex; justify-content: space-between; gap: 8px;
-    min-width: 0;
-  }
-  .swatch .meta span{ min-width: 0; overflow: hidden; text-overflow: ellipsis; }
-  /* Below ~520px the row+hex don't fit side-by-side; stack them. */
-  @media (max-width: 520px){
-    .swatch .meta{ flex-direction: column; gap: 2px; }
   }
   .swatch .meta .hex{ color: var(--ink); }
   .type-specimen{
@@ -1433,12 +1430,9 @@
     /* Pricing cards must stack — they overflow at 1fr 1fr below ~600px */
     .pricing-grid{ grid-template-columns: 1fr; gap: 16px; }
 
-    /* Pull-quote display headline: the <br> in markup forces two lines.
-       On mobile the H1 case-title wraps to 2 lines ("The Boutique / Condo Dental.")
-       at ~44px, but the pull quote's longer line ("deserves a site that does too.",
-       30 chars) won't fit at 44px on a 390px viewport. Sized down so the
-       longer half fits on one line at the smallest target widths. */
-    .case-callout p{ font-size: clamp(22px, 6.6vw, 32px); }
+    /* Pull-quote display headline: nowrap one-line stops fitting below ~600px,
+       so allow wrap and keep type readable. */
+    .case-callout p{ white-space: normal; font-size: clamp(22px, 6vw, 32px); }
 
     /* Hero wordmark: scale to fit the viewport (was clamp(72px, 16.5vw, 240px))
        which clipped the right edge on narrow phones). */
@@ -2605,7 +2599,7 @@ function BCDCaseStudy({
     }
   }, /*#__PURE__*/React.createElement("p", null, "The Boutique Condo Dental opened on Nelson St with a clear point of view: dentistry should feel calm, modern, and predictable. Their original site didn't reflect any of that."), /*#__PURE__*/React.createElement("p", null, "Built in 2018 from a template, it listed three services, buried the hours, and used a contact form that didn't go anywhere."), /*#__PURE__*/React.createElement("p", null, "But the clinic itself continues growing every year: new equipment, new services, new ways of caring for patients. None of it had made it online, partly because updating the old site was such a hassle."), /*#__PURE__*/React.createElement("p", null, "We rebuilt the site from strategy down: sitemap, voice, visual system, booking flow. The goal was simple. The site should reflect the practice, not lag behind it."))), /*#__PURE__*/React.createElement("section", {
     className: "case-callout"
-  }, /*#__PURE__*/React.createElement("p", null, "A practice that stays current", /*#__PURE__*/React.createElement("br", null), "deserves a site that does too.")), /*#__PURE__*/React.createElement("section", {
+  }, /*#__PURE__*/React.createElement("p", null, "A practice that stays current deserves a site that does too.")), /*#__PURE__*/React.createElement("section", {
     className: "case-section"
   }, /*#__PURE__*/React.createElement("span", {
     className: "label",
@@ -2868,8 +2862,7 @@ function App() {
         inset: 0,
         width: "100%",
         height: "100%",
-        objectFit: "cover",
-        objectPosition: "left center"
+        objectFit: "cover"
       }
     })
   }, {
